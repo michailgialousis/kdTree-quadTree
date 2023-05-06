@@ -69,7 +69,7 @@ public class Main {
     }
 
     public static boolean checkArrayElements(int [][]array,int M,int N,int num) {
-         array = new int[M][N];
+         
         for(int i = 0; i<M;i++){
             for(int j = 0; j<N;j ++){
                 if(array[i][j] == num)
