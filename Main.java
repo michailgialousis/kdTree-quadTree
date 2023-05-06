@@ -46,8 +46,9 @@ public class Main {
 
                     } while (checkArrayElements(points,M[k],2,randomNumber ));
                     nonExistingPoints[i][j] = randomNumber;
-                    depthOfFailedSearches[i] = kdTree.search(root,nonExistingPoints[i]);
+                    //depthOfFailedSearches[i] = kdTree.search(root,nonExistingPoints[i]);
                 }
+                depthOfFailedSearches[i] = kdTree.search(root,nonExistingPoints[i]);
             }
 
 
