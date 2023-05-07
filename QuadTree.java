@@ -1,7 +1,7 @@
 public class QuadTree<Key extends Comparable<Key>> {
     private Node root;
 
-    // helper node data type
+
     private class Node {
         Key x, y;              // x- and y- coordinates
         Node NW, NE, SE, SW;   // four subtrees
@@ -12,9 +12,6 @@ public class QuadTree<Key extends Comparable<Key>> {
         }
     }
 
-    /***********************************************************************
-     *  Insert (x, y) into appropriate quadrant
-     ***************************************************************************/
     public void insert(Key x, Key y) {
         root = insert(root, x, y);
     }
@@ -28,10 +25,6 @@ public class QuadTree<Key extends Comparable<Key>> {
         return h;
     }
 
-    /***********************************************************************
-     *  Search for the node that matches (x, y) coordinate and return its depth
-     *  Return the depth of the tree if the node is not found.
-     ***************************************************************************/
     public int search(Key x, Key y) {
         Node result = search(root, x, y);
         return (result != null) ? depth(result) : depth(root);
@@ -53,9 +46,6 @@ public class QuadTree<Key extends Comparable<Key>> {
         }
     }
 
-    /***********************************************************************
-     *  Helper functions
-     ***************************************************************************/
     private boolean less(Key k1, Key k2) {
         return k1.compareTo(k2) < 0;
     }

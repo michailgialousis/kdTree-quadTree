@@ -36,7 +36,7 @@ public class KDtree {
     }
 
     public int searchRec(Node root, int[] point,
-                             int depth) {
+                         int depth) {
         if (root == null) {
             return depth;
         }
