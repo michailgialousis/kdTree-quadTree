@@ -26,23 +26,22 @@ public class QuadTree<Key extends Comparable<Key>> {
     }
 
     public int search(Key x, Key y) {
-        Node result = search(root, x, y);
-        return (result != null) ? depth(result) : depth(root);
+        return search(root, x, y, 0);
     }
 
-    private Node search(Node node, Key x, Key y) {
+    private int search(Node node, Key x, Key y, int depth) {
         if (node == null) {
-            return null;
+            return depth;
         } else if (eq(x, node.x) && eq(y, node.y)) {
-            return node;
+            return depth;
         } else if (less(x, node.x) && less(y, node.y)) {
-            return search(node.SW, x, y);
+            return search(node.SW, x, y, depth + 1);
         } else if (less(x, node.x) && !less(y, node.y)) {
-            return search(node.NW, x, y);
+            return search(node.NW, x, y, depth + 1);
         } else if (!less(x, node.x) && less(y, node.y)) {
-            return search(node.SE, x, y);
+            return search(node.SE, x, y, depth + 1);
         } else { // (!less(x, node.x) && !less(y, node.y))
-            return search(node.NE, x, y);
+            return search(node.NE, x, y, depth + 1);
         }
     }
 
